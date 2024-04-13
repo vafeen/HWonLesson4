@@ -8,13 +8,10 @@
     android:background="@color/black"
     tools:context=".MainActivity">
 
-    <Space
-        android:layout_width="2000dp"
-        android:layout_height="100dp"
-        tools:ignore="MissingConstraints" />
-    
+
     <TextView
         android:id="@+id/spaceXName"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="10dp"
@@ -24,10 +21,75 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.464"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.000" />
+        app:layout_constraintVertical_bias="0.023" />
+
+    <View
+        android:id="@+id/spacer"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spaceXName" />
+
+    <View
+        android:id="@+id/tabView"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@drawable/tab_row_shape"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spacer" />
+
+    <TextView
+        android:id="@+id/upcoming"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+
+        android:text="Upcoming"
+        android:textSize="@dimen/tabTextSize"
+        app:layout_constraintBottom_toBottomOf="@+id/tabView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintStart_toStartOf="@+id/tabView"
+        app:layout_constraintTop_toBottomOf="@+id/spacer"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/launchers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="172dp"
+        android:clickable="true"
+        android:focusable="true"
+
+        android:text="Launchers"
+        android:textSize="@dimen/tabTextSize"
+        app:layout_constraintBottom_toBottomOf="@+id/tabView"
+        app:layout_constraintStart_toStartOf="@+id/tabView"
+        app:layout_constraintTop_toTopOf="@+id/upcoming"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/rockets"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+
+        android:text="Rockets"
+        android:textSize="@dimen/tabTextSize"
+        app:flow_horizontalBias="0.8"
+        app:layout_constraintBottom_toBottomOf="@+id/tabView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/launchers"
+        app:layout_constraintTop_toTopOf="@+id/upcoming"
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
