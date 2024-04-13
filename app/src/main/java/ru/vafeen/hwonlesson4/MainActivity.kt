@@ -24,19 +24,6 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(binding.root)
 
-
-        binding.upcoming.setOnClickListener {
-            switchColorsInTabs(TabRowNaming.Upcoming)
-        }
-
-        binding.launchers.setOnClickListener {
-            switchColorsInTabs(TabRowNaming.Launchers)
-        }
-
-        binding.rockets.setOnClickListener {
-            switchColorsInTabs(TabRowNaming.Rockets)
-
-        }
         content()
     }
 
@@ -75,7 +62,18 @@ class MainActivity : AppCompatActivity() {
 //        listView.setAdapter(adapter)
 
         binding.apply {
+            upcoming.setOnClickListener {
+                switchColorsInTabs(TabRowNaming.Upcoming)
+            }
 
+            launchers.setOnClickListener {
+                switchColorsInTabs(TabRowNaming.Launchers)
+            }
+
+            rockets.setOnClickListener {
+                switchColorsInTabs(TabRowNaming.Rockets)
+
+            }
         }
 
     }
