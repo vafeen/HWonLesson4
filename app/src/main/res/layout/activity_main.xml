@@ -74,6 +74,7 @@
         android:clickable="true"
         android:focusable="true"
 
+        android:minHeight="48dp"
         android:text="Upcoming"
         android:textSize="@dimen/tabTextSize"
         app:layout_constraintBottom_toBottomOf="@+id/tabView"
@@ -89,6 +90,7 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         android:focusable="true"
+        android:minHeight="48dp"
         android:text="Launchers"
         android:textSize="@dimen/tabTextSize"
         app:layout_constraintBottom_toBottomOf="@+id/tabView"
@@ -105,11 +107,12 @@
         android:clickable="true"
         android:focusable="true"
 
+        android:minHeight="48dp"
         android:text="Rockets"
         android:textSize="@dimen/tabTextSize"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintBottom_toBottomOf="@+id/tabView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@id/rezdelitel2"
         app:layout_constraintTop_toTopOf="@+id/upcoming"
         app:layout_constraintVertical_bias="0.0" />
