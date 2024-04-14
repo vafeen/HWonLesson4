@@ -11,7 +11,6 @@
 
     <TextView
         android:id="@+id/spaceXName"
-
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="10dp"
@@ -60,29 +59,31 @@
     <View
         android:id="@+id/tabView"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="0dp"
         android:background="@drawable/tab_row_shape"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHeight_percent="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spacer" />
+        app:layout_constraintTop_toBottomOf="@+id/spacer"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/upcoming"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:clickable="true"
-        android:focusable="true"
 
+        android:focusable="true"
         android:minHeight="48dp"
         android:text="Upcoming"
         android:textSize="@dimen/tabTextSize"
-        app:layout_constraintBottom_toBottomOf="@+id/tabView"
         app:layout_constraintEnd_toStartOf="@id/rezdelitel1"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.63"
         app:layout_constraintStart_toStartOf="@+id/tabView"
-        app:layout_constraintTop_toBottomOf="@+id/spacer"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="@+id/tabView" />
 
     <TextView
         android:id="@+id/launchers"
@@ -93,7 +94,7 @@
         android:minHeight="48dp"
         android:text="Launchers"
         android:textSize="@dimen/tabTextSize"
-        app:layout_constraintBottom_toBottomOf="@+id/tabView"
+
         app:layout_constraintEnd_toStartOf="@id/rezdelitel2"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@id/rezdelitel1"
@@ -117,17 +118,7 @@
         app:layout_constraintTop_toTopOf="@+id/upcoming"
         app:layout_constraintVertical_bias="0.0" />
 
-    <View
-        android:id="@+id/onelaunch"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.352"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tabView"
-        app:layout_constraintVertical_bias="0.0" />
+    <!--  Upcoming views-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

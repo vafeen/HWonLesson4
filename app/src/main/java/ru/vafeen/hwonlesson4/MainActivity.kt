@@ -2,27 +2,31 @@ package ru.vafeen.hwonlesson4
 
 
 import android.os.Bundle
-import android.view.View
-import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import ru.vafeen.hwonlesson4.databinding.ActivityMainBinding
+import ru.vafeen.hwonlesson4.databinding.LaunchBinding
 import ru.vafeen.hwonlesson4.noui.logExecutor
 import ru.vafeen.hwonlesson4.ui.TabRowNaming
 
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var bindingMainActivity: ActivityMainBinding
+    private lateinit var bindingLaunchBinding: LaunchBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         enableEdgeToEdge()
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        bindingMainActivity = ActivityMainBinding.inflate(layoutInflater)
 
-        setContentView(binding.root)
+        bindingLaunchBinding = LaunchBinding.inflate(layoutInflater)
+
+
+
+        setContentView(bindingMainActivity.root)
 
         content()
     }
@@ -32,23 +36,23 @@ class MainActivity : AppCompatActivity() {
 
         when (current) {
             TabRowNaming.Upcoming -> {
-                binding.upcoming.setTextColor(resources.getColor(R.color.red))
-                binding.launchers.setTextColor(resources.getColor(R.color.black))
-                binding.rockets.setTextColor(resources.getColor(R.color.black))
+                bindingMainActivity.upcoming.setTextColor(resources.getColor(R.color.red))
+                bindingMainActivity.launchers.setTextColor(resources.getColor(R.color.black))
+                bindingMainActivity.rockets.setTextColor(resources.getColor(R.color.black))
             }
 
             TabRowNaming.Launchers -> {
 
-                binding.upcoming.setTextColor(resources.getColor(R.color.black))
-                binding.launchers.setTextColor(resources.getColor(R.color.red))
-                binding.rockets.setTextColor(resources.getColor(R.color.black))
+                bindingMainActivity.upcoming.setTextColor(resources.getColor(R.color.black))
+                bindingMainActivity.launchers.setTextColor(resources.getColor(R.color.red))
+                bindingMainActivity.rockets.setTextColor(resources.getColor(R.color.black))
 
             }
 
             TabRowNaming.Rockets -> {
-                binding.upcoming.setTextColor(resources.getColor(R.color.black))
-                binding.launchers.setTextColor(resources.getColor(R.color.black))
-                binding.rockets.setTextColor(resources.getColor(R.color.red))
+                bindingMainActivity.upcoming.setTextColor(resources.getColor(R.color.black))
+                bindingMainActivity.launchers.setTextColor(resources.getColor(R.color.black))
+                bindingMainActivity.rockets.setTextColor(resources.getColor(R.color.red))
             }
 
 
@@ -61,7 +65,7 @@ class MainActivity : AppCompatActivity() {
 //        val adapter = MyAdapter(this, myData)
 //        listView.setAdapter(adapter)
 
-        binding.apply {
+        bindingMainActivity.apply {
             upcoming.setOnClickListener {
                 switchColorsInTabs(TabRowNaming.Upcoming)
             }
