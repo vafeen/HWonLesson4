@@ -19,11 +19,17 @@ class UpComingLaunchFragment : Fragment(R.layout.launch) {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = LaunchBinding.inflate(layoutInflater)
+        binding = LaunchBinding.inflate(inflater, container, false)
+
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         val data = arguments?.getSerializable(LaunchPutGet.LaunchKey.key) as? Launch
 
-        logExecutor(mes = "data = $data") // сюда приходят данные!!
+        logExecutor(mes = "launch = $data") // сюда приходят данные!!
 
         binding.apply {
 
@@ -37,7 +43,5 @@ class UpComingLaunchFragment : Fragment(R.layout.launch) {
                 icon.setImageResource(data.image)
             }
         }
-
-        return inflater.inflate(R.layout.launch, container, false)
     }
 }

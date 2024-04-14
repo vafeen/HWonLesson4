@@ -7,37 +7,40 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import ru.vafeen.hwonlesson4.R
 import ru.vafeen.hwonlesson4.databinding.LaunchBinding
+import ru.vafeen.hwonlesson4.databinding.UpcomingInfoItemBinding
 import ru.vafeen.hwonlesson4.noui.logExecutor
+import ru.vafeen.hwonlesson4.ui.UpComingItem
 import ru.vafeen.hwonlesson4.ui.launch.Launch
 import ru.vafeen.hwonlesson4.ui.launch.LaunchPutGet
 
 class UpComingItemFragment : Fragment(R.layout.upcoming_info_item) {
-    private lateinit var binding: LaunchBinding
+    private lateinit var binding: UpcomingInfoItemBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = LaunchBinding.inflate(layoutInflater)
+        binding = UpcomingInfoItemBinding.inflate(inflater, container, false)
 
-        val data = arguments?.getSerializable(LaunchPutGet.LaunchKey.key) as? Launch
+        return binding.root
+    }
 
-        logExecutor(mes = "data = $data") // сюда приходят данные!!
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val data = arguments?.getSerializable(LaunchPutGet.ItemKey.key) as? UpComingItem
+
+        logExecutor(mes = "item = $data") // сюда приходят данные!!
 
         binding.apply {
 
             if (data != null) {
-                name.text = data.name
+                title.text = data.title
 
-                model.text = data.model
-
-                start.text = data.dateStart
-
-                icon.setImageResource(data.image)
+                text.text = data.text
             }
         }
 
-        return inflater.inflate(R.layout.launch, container, false)
     }
 }
