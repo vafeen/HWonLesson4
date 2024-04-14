@@ -5,13 +5,14 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
 import ru.vafeen.hwonlesson4.databinding.ActivityMainBinding
 import ru.vafeen.hwonlesson4.databinding.LaunchBinding
-import ru.vafeen.hwonlesson4.ui.launch.Launch
 import ru.vafeen.hwonlesson4.noui.logExecutor
 import ru.vafeen.hwonlesson4.ui.TabRowNaming
-import ru.vafeen.hwonlesson4.ui.fragments.LaunchFragment
+import ru.vafeen.hwonlesson4.ui.UpComingItem
+import ru.vafeen.hwonlesson4.ui.fragments.UpComingItemFragment
+import ru.vafeen.hwonlesson4.ui.fragments.UpComingLaunchFragment
+import ru.vafeen.hwonlesson4.ui.launch.Launch
 import ru.vafeen.hwonlesson4.ui.launch.LaunchPutGet
 
 
@@ -20,19 +21,27 @@ class MainActivity : AppCompatActivity() {
     private lateinit var bindingMainActivity: ActivityMainBinding
     private lateinit var bindingLaunchBinding: LaunchBinding
 
-    private val launchFragment = LaunchFragment().apply {
-        arguments = Bundle().apply {
-            putSerializable(
-                LaunchPutGet.LaunchKey.key, Launch(
-                    name = "Artur",
-                    model = "Vafin",
-                    dateStart = "today",
-                    image = R.drawable.falcon09
-                )
-            )
-        }
 
-    }
+    private val ids = listOf(
+        R.id.upComingFragmentLaunchDate,
+        R.id.upComingFragmentLaunchSite,
+        R.id.upComingFragmentCountDown
+    )
+
+    private val upComingItems = listOf(
+        UpComingItem(
+            title = "LAUNCH DATE",
+            text = "Thu Oct 17 5:30:00 2019"
+        ),
+        UpComingItem(
+            title = "LAUNCH SITE",
+            text = "Cape Canaveral Air Force Station Space \nLaunch Complex 40"
+        ),
+        UpComingItem(
+            title = "COUNT DOWN",
+            "5 Hrs 30 mins more...",
+        )
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,16 +54,44 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(bindingMainActivity.root)
 
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.upComingFragmentLaunch, UpComingLaunchFragment().apply {
+                arguments = Bundle().apply {
+                    putSerializable(
+                        LaunchPutGet.LaunchKey.key,
+                        Launch(
+                            name = "Artur",
+                            model = "Vafin",
+                            dateStart = "today",
+                            image = R.drawable.falcon09
+                        )
+                    )
+                }
+            })
+            .commit()
 
 
-        replaceFragmentOn(launchFragment)
 
+        supportFragmentManager.beginTransaction()
+            .let {
+                for (index in 0..ids.lastIndex) {
+                    it.replace(ids[index], UpComingItemFragment().apply {
+                        arguments = Bundle().apply {
+                            putSerializable(
+                                LaunchPutGet.ItemKey.key,
+                                upComingItems[index]
+                            )
+                        }
+                    })
+                }
+                it
+            }.commit()
 
         content()
     }
 
     private fun switchTabs(current: TabRowNaming) {
-        logExecutor(mes = "switchColors")
+//        logExecutor(mes = "switchColors")
 
         when (current) {
             TabRowNaming.Upcoming -> {
@@ -109,14 +146,6 @@ class MainActivity : AppCompatActivity() {
 
             launch.visibility = visibility
         }
-    }
-
-    private fun replaceFragmentOn(fragment: Fragment) {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment, fragment)
-            .commit()
-
-
     }
 
 
