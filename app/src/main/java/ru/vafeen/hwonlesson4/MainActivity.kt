@@ -66,6 +66,7 @@ class MainActivity : AppCompatActivity() {
                     rockets.setTextColor(resources.getColor(R.color.black))
 
                 }
+
                 bindingLaunchBinding.changeVisibility(View.VISIBLE)
 
 
@@ -73,9 +74,10 @@ class MainActivity : AppCompatActivity() {
 
 
             TabRowNaming.Launchers -> {
-
                 bindingMainActivity.upcoming.setTextColor(resources.getColor(R.color.black))
+
                 bindingMainActivity.launchers.setTextColor(resources.getColor(R.color.red))
+
                 bindingMainActivity.rockets.setTextColor(resources.getColor(R.color.black))
 
                 bindingLaunchBinding.changeVisibility(View.GONE)
@@ -84,7 +86,9 @@ class MainActivity : AppCompatActivity() {
 
             TabRowNaming.Rockets -> {
                 bindingMainActivity.upcoming.setTextColor(resources.getColor(R.color.black))
+
                 bindingMainActivity.launchers.setTextColor(resources.getColor(R.color.black))
+
                 bindingMainActivity.rockets.setTextColor(resources.getColor(R.color.red))
 
                 bindingLaunchBinding.changeVisibility(View.GONE)
@@ -134,7 +138,6 @@ class MainActivity : AppCompatActivity() {
 
             rockets.setOnClickListener {
                 switchTabs(TabRowNaming.Rockets)
-
             }
         }
 

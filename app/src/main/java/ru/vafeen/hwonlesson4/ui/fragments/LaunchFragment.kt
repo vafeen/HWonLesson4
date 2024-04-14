@@ -26,9 +26,11 @@ class LaunchFragment : Fragment(R.layout.launch) {
         binding = LaunchBinding.inflate(layoutInflater)
 
         val data = arguments?.getSerializable(LaunchPutGet.LaunchKey.key) as? Launch
+
         logExecutor(mes = "data = ${data}") // сюда приходят данные!!
 
         binding.apply {
+
             if (data != null) {
                 name.text = data.name
 
@@ -39,6 +41,7 @@ class LaunchFragment : Fragment(R.layout.launch) {
                 icon.setImageResource(data.image)
             }
         }
+
         return inflater.inflate(R.layout.launch, container, false)
     }
 
