@@ -34,13 +34,13 @@ class UpComingLaunchFragment : Fragment(R.layout.launch) {
         binding.apply {
 
             if (data != null) {
-                name.text = data.name
+                launchname.text = data.name
 
-                model.text = data.model
+                launchmodel.text = data.model
 
-                start.text = data.dateStart
+                launchstart.text = data.dateStart
 
-                icon.setImageResource(data.image)
+                launchicon.setImageResource(data.image)
             }
         }
     }
