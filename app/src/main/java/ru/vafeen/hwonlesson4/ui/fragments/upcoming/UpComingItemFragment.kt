@@ -1,4 +1,4 @@
-package ru.vafeen.hwonlesson4.ui.fragments
+package ru.vafeen.hwonlesson4.ui.fragments.upcoming
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import ru.vafeen.hwonlesson4.R
 import ru.vafeen.hwonlesson4.databinding.UpcomingInfoItemBinding
 import ru.vafeen.hwonlesson4.noui.logExecutor
 import ru.vafeen.hwonlesson4.ui.UpComingItem
-import ru.vafeen.hwonlesson4.ui.launch.LaunchPutGet
+import ru.vafeen.hwonlesson4.ui.fragments.launcherslist.launch.LaunchPutGet
 
 class UpComingItemFragment : Fragment(R.layout.upcoming_info_item) {
     private lateinit var binding: UpcomingInfoItemBinding
