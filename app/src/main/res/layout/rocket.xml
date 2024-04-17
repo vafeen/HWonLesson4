@@ -49,7 +49,7 @@
             app:layout_constraintVertical_bias="0.052" />
 
         <TextView
-            android:id="@+id/launchname"
+            android:id="@+id/rocketname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -62,17 +62,17 @@
 
 
         <Button
+            style=""
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="active"
-           style=""
-            app:circularflow_radiusInDP="0dp"
             android:layout_marginTop="8dp"
+            android:text="active"
             android:textSize="18sp"
+            app:circularflow_radiusInDP="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/launchname"
-            app:layout_constraintTop_toBottomOf="@id/launchname" />
+            app:layout_constraintStart_toStartOf="@+id/rocketname"
+            app:layout_constraintTop_toBottomOf="@id/rocketname" />
 
         />
     </androidx.constraintlayout.widget.ConstraintLayout>
