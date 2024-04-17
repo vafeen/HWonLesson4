@@ -123,7 +123,7 @@
     <!--  Upcoming views-->
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/upComingFragmentLaunch"
-        android:name="ru.vafeen.hwonlesson4.ui.fragments.UpComingLaunchFragment"
+        android:name="ru.vafeen.hwonlesson4.ui.fragments.upcoming.UpComingLaunchFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="visible"
@@ -136,7 +136,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/upComingFragmentLaunchDate"
-        android:name="ru.vafeen.hwonlesson4.ui.fragments.UpComingItemFragment"
+        android:name="ru.vafeen.hwonlesson4.ui.fragments.upcoming.UpComingItemFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -150,7 +150,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/upComingFragmentLaunchSite"
-        android:name="ru.vafeen.hwonlesson4.ui.fragments.UpComingItemFragment"
+        android:name="ru.vafeen.hwonlesson4.ui.fragments.upcoming.UpComingItemFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -164,7 +164,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/upComingFragmentLaunchCountDown"
-        android:name="ru.vafeen.hwonlesson4.ui.fragments.UpComingItemFragment"
+        android:name="ru.vafeen.hwonlesson4.ui.fragments.upcoming.UpComingItemFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -192,14 +192,20 @@
         app:layout_constraintVertical_bias="0.0"
         tools:listitem="@layout/launch" />
 
-    <!--    <androidx.recyclerview.widget.RecyclerView-->
-    <!--        android:id="@+id/rocketsRecyclerView"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="0dp"-->
-    <!--        android:visibility="gone"-->
-    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--        app:layout_constraintTop_toBottomOf="@id/detailsDivider"-->
-    <!--        tools:listitem="@layout/rocket_view" />-->
+    <!--Rockets view-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rocketsList"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="gone"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/launchers"
+        app:layout_constraintVertical_bias="0.0"
+        tools:listitem="@layout/rocket" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
