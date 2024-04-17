@@ -1,22 +1,20 @@
 package ru.vafeen.hwonlesson4
 
 
-import android.opengl.Visibility
 import android.os.Bundle
-import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import ru.vafeen.hwonlesson4.databinding.ActivityMainBinding
 import ru.vafeen.hwonlesson4.databinding.LaunchBinding
-import ru.vafeen.hwonlesson4.noui.logExecutor
-import ru.vafeen.hwonlesson4.ui.Rocket
+import ru.vafeen.hwonlesson4.ui.rocket.Rocket
 import ru.vafeen.hwonlesson4.ui.TabRowNaming
-import ru.vafeen.hwonlesson4.ui.UpComingItem
-import ru.vafeen.hwonlesson4.ui.fragments.UpComingItemFragment
-import ru.vafeen.hwonlesson4.ui.fragments.UpComingLaunchFragment
+import ru.vafeen.hwonlesson4.ui.fragments.upcoming.UpComingItem
+import ru.vafeen.hwonlesson4.ui.fragments.upcoming.UpComingItemFragment
+import ru.vafeen.hwonlesson4.ui.fragments.upcoming.UpComingLaunchFragment
 import ru.vafeen.hwonlesson4.ui.fragments.launcherslist.LaunchersAdapter
+import ru.vafeen.hwonlesson4.ui.fragments.rocketslist.RocketsAdapter
 import ru.vafeen.hwonlesson4.ui.launch.Launch
 import ru.vafeen.hwonlesson4.ui.launch.LaunchPutGet
 
@@ -27,6 +25,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var bindingLaunchBinding: LaunchBinding
 
     val launchersAdapter = LaunchersAdapter()
+    val rocketsAdapter = RocketsAdapter()
 
     private val launchers = listOf(
         Launch(
@@ -67,20 +66,6 @@ class MainActivity : AppCompatActivity() {
             image = R.drawable.falconsat01
         ),
     )
-
-    private fun setLaunchers() {
-        val context = this
-
-        launchersAdapter.launchers = launchers
-
-        bindingMainActivity.launchesList.apply {
-            layoutManager =
-                LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-            adapter = launchersAdapter
-        }
-
-        launchersAdapter.notifyDataSetChanged()
-    }
 
     private val ids = listOf(
         R.id.upComingFragmentLaunchDate,
@@ -152,6 +137,8 @@ class MainActivity : AppCompatActivity() {
 
         setLaunchers()
 
+        setRockets()
+
         content()
     }
 
@@ -216,6 +203,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
     private fun upComingViewSetVisible(visibility: Boolean) {
         bindingMainActivity.apply {
             upComingFragmentLaunch.isVisible = visibility
@@ -229,37 +217,79 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun setLaunchers() {
+        val context = this
+
+        launchersAdapter.launchers = launchers
+
+        bindingMainActivity.launchesList.apply {
+            layoutManager =
+                LinearLayoutManager(
+                    context,
+                    LinearLayoutManager.VERTICAL,
+                    false
+                )
+            adapter = launchersAdapter
+        }
+
+        launchersAdapter.notifyDataSetChanged()
+    }
+
+    private fun setRockets() {
+        val context = this
+
+        rocketsAdapter.rockets = rockets
+
+        bindingMainActivity.rocketsList.apply {
+            layoutManager =
+                LinearLayoutManager(
+                    context,
+                    LinearLayoutManager.VERTICAL,
+                    false
+                )
+            adapter = rocketsAdapter
+        }
+
+        launchersAdapter.notifyDataSetChanged()
+    }
 
     private fun launchersSetVisible(visibility: Boolean) {
         bindingMainActivity.apply {
+
             launchesList.isVisible = visibility
+
         }
     }
 
     private fun rocketsSetVisible(visibility: Boolean) {
         bindingMainActivity.apply {
 
+            rocketsList.isVisible = visibility
+
         }
     }
 
     private fun content() {
 
-//        val listView = findViewById<View>(R.id.myListView) as ListView
-//        val adapter = MyAdapter(this, myData)
-//        listView.setAdapter(adapter)
         switchTabs(TabRowNaming.Upcoming)
 
         bindingMainActivity.apply {
             upcoming.setOnClickListener {
+
                 switchTabs(TabRowNaming.Upcoming)
+
             }
 
             launchers.setOnClickListener {
+
                 switchTabs(TabRowNaming.Launchers)
+
             }
 
             rockets.setOnClickListener {
+
                 switchTabs(TabRowNaming.Rockets)
+
             }
         }
 
