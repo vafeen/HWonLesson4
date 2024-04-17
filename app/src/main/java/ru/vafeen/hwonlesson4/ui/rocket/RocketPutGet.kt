@@ -1,4 +1,4 @@
-package ru.vafeen.hwonlesson4.ui.fragments.rocketslist.rocket
+package ru.vafeen.hwonlesson4.ui.rocket
 
 enum class RocketPutGet(val key: String) {
 

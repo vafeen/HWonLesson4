@@ -1,4 +1,4 @@
-package ru.vafeen.hwonlesson4.ui.fragments.launcherslist.launch
+package ru.vafeen.hwonlesson4.ui.launch
 
 enum class LaunchPutGet(val key: String) {
 

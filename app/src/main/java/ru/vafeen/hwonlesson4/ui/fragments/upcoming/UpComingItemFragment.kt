@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import ru.vafeen.hwonlesson4.R
 import ru.vafeen.hwonlesson4.databinding.UpcomingInfoItemBinding
 import ru.vafeen.hwonlesson4.noui.logExecutor
-import ru.vafeen.hwonlesson4.ui.fragments.launcherslist.launch.LaunchPutGet
+import ru.vafeen.hwonlesson4.ui.launch.LaunchPutGet
 
 class UpComingItemFragment : Fragment(R.layout.upcoming_info_item) {
     private lateinit var binding: UpcomingInfoItemBinding
