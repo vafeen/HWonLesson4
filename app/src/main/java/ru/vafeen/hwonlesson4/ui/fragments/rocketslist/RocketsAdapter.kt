@@ -7,13 +7,16 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import ru.vafeen.hwonlesson4.MainActivity
 import ru.vafeen.hwonlesson4.R
 import ru.vafeen.hwonlesson4.ui.rocket.Rocket
 
 class RocketsAdapter : RecyclerView.Adapter<RocketsAdapter.ViewHolder>() {
 
     var rockets: List<Rocket> = listOf()
+    val context = this
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
@@ -22,6 +25,7 @@ class RocketsAdapter : RecyclerView.Adapter<RocketsAdapter.ViewHolder>() {
         val rocketName: TextView = itemView.findViewById(R.id.rocketname)
 
         val rocketIsActive: Button = itemView.findViewById(R.id.rocketisactive)
+
 
         fun bind(rocket: Rocket) {
             rocketName.text = rocket.name
@@ -33,6 +37,26 @@ class RocketsAdapter : RecyclerView.Adapter<RocketsAdapter.ViewHolder>() {
                 rocketIsActive.text = "Inactive"
 
                 rocketIsActive.setBackgroundColor(Color.RED)
+            }
+            rocketIsActive.setOnClickListener {
+                if (rocket.active) {
+
+                    Toast.makeText(
+                        MainActivity.context,
+                        "Одна из ракет ${rocket.name} запущена на орбиту!",
+                        Toast.LENGTH_LONG
+                    ).show()
+
+                }else{
+
+                    Toast.makeText(
+                        MainActivity.context,
+                        "Ракета не готова к запуску",
+                        Toast.LENGTH_LONG
+                    ).show()
+
+                }
+
             }
 
         }
