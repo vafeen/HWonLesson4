@@ -15,7 +15,7 @@
         android:layout_margin="5dp">
 
         <ImageView
-            android:id="@+id/rocketicon"
+            android:id="@+id/launchicon"
             android:layout_width="139dp"
             android:layout_height="155dp"
             android:contentDescription="icon"
