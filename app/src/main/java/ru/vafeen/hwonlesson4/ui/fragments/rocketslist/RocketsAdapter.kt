@@ -30,7 +30,7 @@ class RocketsAdapter : RecyclerView.Adapter<RocketsAdapter.ViewHolder>() {
 
                 rocketIsActive.setBackgroundColor(Color.GREEN)
             } else {
-                rocketIsActive.text = "Inavtive"
+                rocketIsActive.text = "Inactive"
 
                 rocketIsActive.setBackgroundColor(Color.RED)
             }
