@@ -11,7 +11,7 @@ import ru.vafeen.hwonlesson4.ui.launch.Launch
 
 class LaunchersAdapter : RecyclerView.Adapter<LaunchersAdapter.ViewHolder>() {
 
-    var launchers: MutableList<Launch> = mutableListOf()
+    var launchers: List<Launch> = listOf()
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
