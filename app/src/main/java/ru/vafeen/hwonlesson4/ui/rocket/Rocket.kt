@@ -1,4 +1,4 @@
-package ru.vafeen.hwonlesson4.ui
+package ru.vafeen.hwonlesson4.ui.rocket
 
 import androidx.annotation.DrawableRes
 

@@ -1,4 +1,4 @@
-package ru.vafeen.hwonlesson4.ui.launch
+package ru.vafeen.hwonlesson4.ui.fragments.launcherslist.launch
 
 import androidx.annotation.DrawableRes
 import java.io.Serializable
