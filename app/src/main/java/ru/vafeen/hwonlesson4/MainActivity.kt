@@ -1,6 +1,8 @@
 package ru.vafeen.hwonlesson4
 
 
+import android.annotation.SuppressLint
+import android.content.Context
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -20,6 +22,10 @@ import ru.vafeen.hwonlesson4.ui.launch.LaunchPutGet
 
 
 class MainActivity : AppCompatActivity() {
+
+    companion object {
+        var context: Context? = null
+    }
 
     private lateinit var bindingMainActivity: ActivityMainBinding
     private lateinit var bindingLaunchBinding: LaunchBinding
@@ -98,6 +104,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        context = this
 
         enableEdgeToEdge()
 
@@ -291,6 +299,7 @@ class MainActivity : AppCompatActivity() {
                 switchTabs(TabRowNaming.Rockets)
 
             }
+
         }
 
     }
