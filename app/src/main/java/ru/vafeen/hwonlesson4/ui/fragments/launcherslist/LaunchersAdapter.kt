@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import ru.vafeen.hwonlesson4.R
-import ru.vafeen.hwonlesson4.ui.fragments.launcherslist.launch.Launch
+import ru.vafeen.hwonlesson4.ui.launch.Launch
 
 class LaunchersAdapter : RecyclerView.Adapter<LaunchersAdapter.ViewHolder>() {
 
