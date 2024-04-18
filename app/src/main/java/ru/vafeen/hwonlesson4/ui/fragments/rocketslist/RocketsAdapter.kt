@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import ru.vafeen.hwonlesson4.MainActivity
 import ru.vafeen.hwonlesson4.R
 import ru.vafeen.hwonlesson4.ui.rocket.Rocket
+import ru.vafeen.hwonlesson4.ui.rocket.RocketIsActive
 
 class RocketsAdapter : RecyclerView.Adapter<RocketsAdapter.ViewHolder>() {
 
@@ -24,20 +25,21 @@ class RocketsAdapter : RecyclerView.Adapter<RocketsAdapter.ViewHolder>() {
 
         val rocketName: TextView = itemView.findViewById(R.id.rocketname)
 
-        val rocketIsActive: Button = itemView.findViewById(R.id.rocketisactive)
-
+        val rocketIsActive: TextView = itemView.findViewById(R.id.rocketisactive)
 
         fun bind(rocket: Rocket) {
             rocketName.text = rocket.name
+
             if (rocket.active) {
-                rocketIsActive.text = "Active"
+                rocketIsActive.text = RocketIsActive.Active.str
 
                 rocketIsActive.setBackgroundColor(Color.GREEN)
             } else {
-                rocketIsActive.text = "Inactive"
+                rocketIsActive.text = RocketIsActive.Inactive.str
 
                 rocketIsActive.setBackgroundColor(Color.RED)
             }
+
             rocketIsActive.setOnClickListener {
                 if (rocket.active) {
 
@@ -47,7 +49,7 @@ class RocketsAdapter : RecyclerView.Adapter<RocketsAdapter.ViewHolder>() {
                         Toast.LENGTH_LONG
                     ).show()
 
-                }else{
+                } else {
 
                     Toast.makeText(
                         MainActivity.context,
