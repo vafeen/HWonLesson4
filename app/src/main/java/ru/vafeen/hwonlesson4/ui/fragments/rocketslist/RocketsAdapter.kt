@@ -33,11 +33,12 @@ class RocketsAdapter : RecyclerView.Adapter<RocketsAdapter.ViewHolder>() {
             if (rocket.active) {
                 rocketIsActive.text = RocketIsActive.Active.str
 
-                rocketIsActive.setBackgroundColor(Color.GREEN)
+                rocketIsActive.setBackgroundResource(R.drawable.rocket_button_shape_active)
             } else {
                 rocketIsActive.text = RocketIsActive.Inactive.str
 
-                rocketIsActive.setBackgroundColor(Color.RED)
+                rocketIsActive.setBackgroundResource(R.drawable.rocket_button_shape_inactive)
+
             }
 
             rocketIsActive.setOnClickListener {

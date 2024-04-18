@@ -9,7 +9,7 @@
     app:cardCornerRadius="5dp"
     app:cardElevation="6dp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="5dp">
@@ -54,26 +54,27 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="name"
-            android:textSize="25sp"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/rocket"
             app:layout_constraintTop_toBottomOf="@id/rocket" />
 
-
-        <Button
+        <TextView
             android:id="@+id/rocketisactive"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:background="@drawable/rocket_button_shape_active"
+
+            android:gravity="center"
+            android:padding="10dp"
             android:text="active"
+            android:textColor="@color/white"
             android:textSize="18sp"
-            app:circularflow_radiusInDP="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/rocketname"
             app:layout_constraintTop_toBottomOf="@id/rocketname" />
-
-        />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
